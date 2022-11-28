@@ -38,7 +38,7 @@ const { createApp } = Vue
         ],
       }
     },
-    method: {
+    methods: {
         // Metodo di navigazione immagine successiva.
         nextImage(){
             // Incrementiamo l'immagine.
