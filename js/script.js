@@ -38,4 +38,24 @@ const { createApp } = Vue
         ],
       }
     },
+    method: {
+        // Metodo di navigazione immagine successiva.
+        nextImage(){
+            // Incrementiamo l'immagine.
+            this.activeImage++;
+            // Se siamo oltre l'indice ritorniamo alla 0.
+            if(this.activeImage > this.slides.length - 1){
+                this.activeImage = 0;
+            }
+        },
+
+        prevImage(){
+            // Decrementiamo l'immagine.
+            this.activeImage--;
+            // Se siamo sotto l'indice ritorniamo all'ultima immagine.
+            if(this.activeImage < 0){
+                this.activeImage = this.slides.length - 1;
+            }
+        }
+    }
 }).mount("#myApp")

@@ -26,10 +26,10 @@
                 </div>
 
                 <div class="thumbs">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                    <div class="thumb active">
-                        <img :src="slides[activeImage].image" :alt="'image di ' + slides[activeImage].title" />
+                    <div class="prev" @click="prevImage"></div>
+                    <div class="next" @click="nextImage"></div>
+                    <div v-for="(miniature, index) in slides" class="thumb"  :class="activeImage === index ? 'active': ''">
+                        <img :src="miniature.image" :alt="miniature.title" />
                     </div>
                 </div>
 
