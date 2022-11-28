@@ -9,6 +9,7 @@ const { createApp } = Vue
     data() {
       return {
         activeImage: 0,
+        changeInterval: 0,
         slides: [
             {
                 image: 'img/01.webp',
@@ -59,10 +60,26 @@ const { createApp } = Vue
         },
 
         // Bonus:
-        // 1- al click su una thumb, visualizzare in grande l’immagine corrispondente.
+        // 1- Al click su una thumb, visualizzare in grande l’immagine corrispondente.
 
         clickThumbSelect(indexMiniature){
             this.activeImage = indexMiniature;
         },
+
+        // 2- Applicare l’autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente.
+        
+        autoPLayOn(){
+            changeInterval = setInterval(this.nextImage, 3000);
+        },
+
+        // 3- Quando il mouse va in hover sullo slider, bloccare l’autoplay e farlo riprendere quando esce.
+        
+        autoPlayOff(){
+            clearInterval(changeInterval);
+        },
+
+        mounted() {
+            changeInterval = setInterval(this.nextImage, 3000);
+        }
     }
 }).mount("#myApp")
