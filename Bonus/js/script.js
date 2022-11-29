@@ -78,8 +78,10 @@ const { createApp } = Vue
             clearInterval(changeInterval);
         },
 
-        mounted() {
-            changeInterval = setInterval(this.nextImage, 3000);
-        }
+    },
+    
+    mounted() {
+        changeInterval = setInterval(this.nextImage, 3000);
     }
+    
 }).mount("#myApp")
